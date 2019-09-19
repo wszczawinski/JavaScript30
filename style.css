@@ -100,6 +100,12 @@ header
     padding-bottom: 30px;
     font-size: 0.9rem;
 }
+@media screen and (max-width: 768px){
+    #about{
+        margin-right: 7%;
+        margin-right: 7%;
+    }
+}
 .container{
     color: rgba(255, 255, 255, 0.9);
     margin-left: 10%;
