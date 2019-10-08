@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Canvas</title>
+</head>
+
+<body>
+  
+  <canvas id="draw" "></canvas>
+  <script>
+    //inital canva properties
+    const canvas = document.querySelector('#draw');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    //drawing line properties
+    ctx.strokeStyle = '#BADA55';
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.lineWidth = 50;
+    //presetting variables for properties manipulation 
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let hue = 0;
+    let direction = true;
+    //drawing function
+    function draw(e) {
+      //checking if mousedown
+      if (!isDrawing) return;
+      console.log(e);
+      //setting color of line usinf hsl()
+      ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+      ctx.beginPath();
+      //start from
+      ctx.moveTo(lastX, lastY);
+      //go to
+      //offsets are comming from event and are equal the position of mouse
+      ctx.lineTo(e.offsetX, e.offsetY);
+      //starting line
+      ctx.stroke();
+      lastX = e.offsetX;
+      lastY = e.offsetY;
+      //ES6 - [lastX, lastY] = [e.offsetX, e.offsetY];
+      hue++;
+      //conditions for width and color of line
+      if (ctx.lineWidth >= 50 || ctx.lineWidth <=1) {
+        direction = !direction;
+      }
+      if (direction) {
+        ctx.lineWidth++;
+      } else {
+        ctx.lineWidth--;
+      }
+    }
+
+    //event listeners for mouse down and other mouse possibilities
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchmove', draw);
+    canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+    canvas.addEventListener('touchstart', (e) => {
+      isDrawing = true;
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+    canvas.addEventListener('mouseup', () => isDrawing = false);
+    canvas.addEventListener('touchup', () => isDrawing = false);
+    canvas.addEventListener('touchout', () => isDrawing = false);
+    canvas.addEventListener('mouseout', () => isDrawing = false);
+
+  </script>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(bg.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+  </style>
+
+</body>
+</html>
