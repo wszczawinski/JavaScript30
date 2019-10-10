@@ -2,23 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hold Shift to Check Multiple Checkboxes</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
 <body>
   <style>
 
     html {
-      font-family: sans-serif;
-      background: #ffc600;
+      font-family: 'Lato', sans-serif;
+      background: url(bg.jpg) bottom center;
+      background-repeat: none;
+      background-size: cover;
+      height: 100%;
+      color: black;
     }
 
     .inbox {
-      max-width: 400px;
+      width: 90%;
       margin: 50px auto;
-      background: white;
+      background: transparent;
       border-radius: 5px;
+      border: 1px solid white;
       box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
     }
+    @media only screen and (min-width: 400px) {
+      .inbox{
+        width: 370px;
+      }
+    }
+
 
     .item {
       display: flex;
@@ -31,8 +44,8 @@
     }
 
     input:checked + p {
-      background: #F9F9F9;
       text-decoration: line-through;
+      color: darkslategray;
     }
 
     input[type="checkbox"] {
@@ -44,9 +57,8 @@
       padding: 20px;
       transition: background 0.2s;
       flex: 1;
-      font-family:'helvetica neue';
-      font-size: 20px;
-      font-weight: 200;
+      font-size: 15px;
+      font-weight: 700;
       border-left: 1px solid #D1E2FF;
     }
   </style>
@@ -95,7 +107,6 @@
     </div>
   </div>
 
-<script>
-</script>
+<script src="check.js"></script>
 </body>
 </html>
