@@ -41,6 +41,9 @@
     });
     console.table(fifteen);
 
+    const born1500 = inventors.filter(inventors => inventors.year>=1500 && inventors.year<=1599 ? true : false);
+    console.log(born1500);
+
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
 
