@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+</head>
+
+<body onload="console.log('Password is: banana :)')">
+  <style>
+    html {
+      font-family: 'Lato', sans-serif;
+      background: url(bg.jpg) bottom center;
+      /* Photo by Markus Spiske on Unsplash */
+      background-repeat: none;
+      background-size: cover;
+      height: 100%;
+      color: white;
+    }
+
+    h1 {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    #display {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    #display img {
+      width: 90%;
+      max-width: 650px;
+    }
+    
+  </style>
+
+  <h1>Type a secret password</h1>
+  <div id="display"></div>
+  
+  <script src="konamiCode.js"></script>
+</body>
+</html>
