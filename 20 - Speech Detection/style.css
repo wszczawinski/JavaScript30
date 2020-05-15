@@ -1,0 +1,29 @@
+html {
+  background: url("bg.jpg") center no-repeat;
+  background-size: cover;
+  /* Photo by BRUNO CERVERA on Unsplash */
+  font-size: 10px;
+  height: 100vh;
+}
+
+body {
+  font-family: fantasy;
+  font-weight: 200;
+  font-size: 20px;
+  color: white;
+}
+
+.words {
+  margin: 50px auto;
+  max-width: 500px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3);
+  padding: 1rem 2rem 1rem 5rem;
+  background-size: 100% 3rem;
+  line-height: 3rem;
+}
+
+p {
+  margin: 0 0 2rem;
+}
